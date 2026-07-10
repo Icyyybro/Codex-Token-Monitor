@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Codex Token Monitor</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Codex 本地用量监控</p>
+          <h1>Token 额度</h1>
+        </div>
+        <div class="top-actions">
+          <button id="refreshButton" class="icon-button" type="button" title="立即刷新" aria-label="立即刷新">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12a9 9 0 0 1-15.4 6.4L3 16" />
+              <path d="M3 21v-5h5" />
+              <path d="M3 12A9 9 0 0 1 18.4 5.6L21 8" />
+              <path d="M21 3v5h-5" />
+            </svg>
+          </button>
+          <div class="status">
+            <span id="statusDot" class="dot"></span>
+            <span id="statusText">连接中</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="metrics" aria-label="Token 汇总">
+        <article>
+          <strong id="totalTokens">--</strong>
+          <span>累计 Token 数</span>
+        </article>
+        <article>
+          <strong id="peakTokens">--</strong>
+          <span>峰值 Token 数</span>
+        </article>
+        <article>
+          <strong id="longestTask">--</strong>
+          <span>最长任务时长</span>
+        </article>
+        <article>
+          <strong id="todayTokens">--</strong>
+          <span>今日 Token 数</span>
+        </article>
+        <article>
+          <strong id="weekTokens">--</strong>
+          <span>近 7 天 Token 数</span>
+        </article>
+      </section>
+
+      <section class="limit-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>每日额度</h2>
+            <span id="dayReset">--</span>
+          </div>
+          <div class="meter">
+            <div id="dayMeter" class="meter-fill"></div>
+          </div>
+          <div class="limit-copy">
+            <strong id="dayRemaining">--</strong>
+            <span id="dayUsed">--</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>每周额度</h2>
+            <span id="weekReset">--</span>
+          </div>
+          <div class="meter">
+            <div id="weekMeter" class="meter-fill alt"></div>
+          </div>
+          <div class="limit-copy">
+            <strong id="weekRemaining">--</strong>
+            <span id="weekUsed">--</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel activity-panel">
+        <div class="panel-head activity-head">
+          <h2>Token 活动</h2>
+          <div class="tabs" role="tablist" aria-label="活动范围">
+            <button class="active" type="button" data-view="daily">最近24小时</button>
+            <button type="button" data-view="weekly">最近7天</button>
+            <button type="button" data-view="cumulative">累计</button>
+          </div>
+        </div>
+        <div id="activityNote" class="activity-note">最近 24 小时 Token 用量</div>
+        <div id="calendar" class="calendar" aria-label="Token 活动"></div>
+        <div id="months" class="months" aria-hidden="true">
+          <span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span>
+          <span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>最近会话</h2>
+          <span id="updatedAt">--</span>
+        </div>
+        <div id="threads" class="threads"></div>
+      </section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

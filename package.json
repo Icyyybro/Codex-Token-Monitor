@@ -1,0 +1,44 @@
+{
+  "name": "codex-token-monitor",
+  "version": "1.0.0",
+  "description": "Local Codex token usage monitor.",
+  "author": "Codex Token Monitor contributors",
+  "license": "MIT",
+  "type": "module",
+  "main": "electron/main.js",
+  "productName": "Codex Token Monitor",
+  "scripts": {
+    "start": "node server.js",
+    "electron:dev": "electron .",
+    "build:mac": "electron-builder --mac dmg zip"
+  },
+  "build": {
+    "appId": "local.codex-token-monitor",
+    "productName": "Codex Token Monitor",
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "asar": true,
+    "files": [
+      "electron/**/*",
+      "server.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "public",
+        "to": "public"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "dmg": {}
+  },
+  "devDependencies": {
+    "electron": "^43.1.0",
+    "electron-builder": "^26.15.3"
+  }
+}
