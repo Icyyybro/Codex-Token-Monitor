@@ -101,6 +101,9 @@ The generated app is not signed with an Apple Developer ID by default. When shar
 
 For public releases, use Apple Developer ID signing and notarization before distributing the `.dmg` or `.zip`.
 
+# Download
+[Releases page](https://github.com/Icyyybro/get_codex_token/releases)
+
 ## License
 
 MIT

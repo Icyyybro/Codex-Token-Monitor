@@ -106,6 +106,12 @@ start.sh             后台运行 Web 服务的便捷脚本。
 package.json         npm 脚本和 Electron Builder 配置。
 ```
 
+## 下载
+
+前往 [Releases 页面](https://github.com/Icyyybro/get_codex_token/releases) 下载最新版本。
+
 ## 许可证
 
 MIT
+
+
